@@ -1,0 +1,674 @@
+#master {
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    margin: 0px;
+    position: absolute;
+    z-index: 2;
+}
+
+#welcome-master-content {
+    width: 100vw;
+    height: 100vh;
+    color: rgba(255, 255, 255, 0.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 200;
+}
+
+#welcome-master-text {
+    font-size: 35px;
+}
+
+#welcome-master-connected-slaves {
+    padding: 10px 0px 22px 0px;
+}
+
+#welcome-master-no-slave-toast {
+    position: absolute;
+    z-index: 5;
+    right: 20px;
+    top: 20px;
+}
+
+#start-master-button {
+    padding: 2px 20px;
+    font-size: 20px;
+}
+
+#main-flow-master {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    margin: 0px;
+}
+#slave {
+    overflow: hidden;
+    background-color: rgb(0, 150, 150);
+}
+
+#default-slave-state {
+    width: 100vw;
+    height: 100vh;
+    color: rgba(255, 255, 255, 0.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 200;
+    font-size: 35px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    /* background-color: rgb(76, 175, 80); */
+}
+
+#slave-flow-buttons {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+}
+
+#display-slave-img-buttons {
+    display: none;
+    width: 100vw;
+    height: 100vw;
+}
+
+img {
+    border: 20px solid #021a40;
+    background-color: rgb(76, 175, 80);
+}
+
+#display-slave-img-buttons-content {
+    display: flex;
+    width: 100vw;
+    /* height: 100vw; */
+    padding-top: 50vh;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#image-container-slave {
+    position: fixed;
+
+    padding: 0;
+    margin: 0;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -2;
+}
+
+#image-slave {
+    height: 100vh;
+    width: 100vw;
+}
+
+#video-container-slave {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+
+    top: 0;
+    left: 0;
+
+    max-width: 100vw;
+    z-index: -2;
+}
+
+#video-slave {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+
+    top: 0;
+    left: 0;
+    max-width: 100vw;
+    z-index: -2;
+}
+
+#orientation-colors {
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -2;
+}
+
+#detection-colors {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -2;
+}
+
+#pink-color {
+    width: 100vw;
+    height: 100vh;
+    /* background-color: rgb(255, 70, 180); */
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -2;
+    font-weight: 200;
+    font-size: 35px;
+}
+
+.outlined-button-white {
+    color: rgba(255, 255, 255, 0.75) !important;
+    border-color: rgba(255, 255, 255, 0.75) !important;
+    background-color: transparent !important;
+    padding: 20px 20px !important;
+    font-size: 30px;
+}
+
+video {
+    object-fit: cover;
+}
+
+.btn-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px !important;
+    font-size: 40px !important;
+}
+
+/* #camera {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+} */
+
+#player-overlay {
+    position: absolute;
+    background-color: transparent;
+    z-index: 2;
+    opacity: 0.5;
+    width: 640px;
+    height: 480px;
+}
+
+.rest {
+    float: left;
+    width: 20%;
+}
+
+.mobile {
+    display: none;
+}
+
+.arrow {
+    display: none;
+}
+
+/* .body h1 {
+    display: none;
+} */
+
+#page {
+    background-color: rgb(76, 175, 80);
+    font-weight: 200 !important;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+#fullScreen {
+    background-color: rgb(76, 175, 80);
+    position: fixed;
+    padding: 0;
+    margin: 0;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    background: rgba(14, 54, 66, 0.253);
+}
+
+#animation {
+    background-color: rgb(76, 175, 80);
+    position: fixed;
+    padding: 0;
+    margin: 0;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    background: rgba(14, 54, 66, 0.253);
+    z-index: -2;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 200 !important;
+}
+
+.captureButton {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: deepskyblue;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.uploadButton {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: darkslategrey;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.pink {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: deeppink;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.green {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: green;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.orange {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: orangered;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.blue {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: blue;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.thin-font {
+    font-weight: 200 !important;
+}
+
+.padVer10 {
+    height: 30px;
+}
+
+/**************************************************/
+#cameraContainer {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+#camera {
+    height: 100%;
+    max-width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#cameraViewFloater {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#cameraViewPortContainer {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+#cameraSettings {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+}
+
+.settingsScreenContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+#cameraSettingsRangeButtonsContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 50;
+}
+
+#cameraSettingsCloseButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    flex: 1;
+}
+
+#settingsSlidersBackButton {
+    font-size: 45px;
+    color: rgb(241, 241, 241);
+    width: 50px;
+    height: 50px;
+}
+
+#cameraEnvSlidersContainer {
+    display: none;
+}
+
+.cameraOverlay {
+    /* height: 100%; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100%;
+    max-width: 100vw;
+}
+
+#cameraOverlay {
+    z-index: 2;
+}
+
+#cameraEnvironmentChangeOverlay {
+    z-index: 3;
+    background-color: black;
+    display: none;
+}
+
+#cameraScreenColorsOverlay {
+    z-index: 4;
+    background-color: black;
+    display: none;
+}
+
+#cameraButtonsContainer {
+    padding-top: 20px;
+    height: 100%;
+    width: 15%;
+    margin-left: calc(100% - 15%);
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.circularButtonContainer1 {
+    flex: 9;
+}
+
+.circularButtonContainer2 {
+    flex: 11;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.circle {
+    border-radius: 1000px;
+}
+
+#confirmButton {
+    background-color: red;
+    width: 8vh;
+    height: 8vh;
+    border-color: rgba(255, 255, 255, 0.5);
+    border-width: 10px;
+    border-style: solid;
+}
+
+#confirmButton:focus {
+    background-color: rgba(0, 0, 0, 0.25);
+    outline: none;
+}
+
+#trackingBackButton {
+    display: none;
+}
+
+#tracking3DButton {
+    display: none;
+}
+
+#settingsButtonIcon {
+    font-size: 45px;
+    color: rgb(241, 241, 241);
+}
+
+#settingsButtonIcon:focus {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+#cameraSettingsCloseButton {
+    font-size: 45px;
+    color: rgb(241, 241, 241);
+    width: 50px;
+    height: 50px;
+}
+
+#cameraSlidersContainer {
+    display: none;
+}
+
+#settingsSlidersScreen {
+    display: none;
+}
+
+#cameraSettingsCloseButton:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.slider {
+    width: 75%;
+    outline: none;
+    appearance: none;
+    background: white;
+}
+
+.settingsSlidersContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex: 50;
+    flex-direction: column;
+    padding-bottom: 25px;
+}
+
+.sliderWithText {
+    text-align: center;
+}
+
+.whiteText {
+    color: white;
+}
+
+.changeRangeButton {
+    width: 25%;
+    height: 10%;
+    background-color: rgb(241, 241, 241);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.changeRangeButton:focus {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: white;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    margin: 0px;
+    overflow-x: hidden;
+}
+
+#detectionLoadingIndicator {
+    display: none;
+}
+
+#postDetectionContent {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+#tracking-container-slave {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+
+    top: 0;
+    left: 0;
+
+    max-width: 100vw;
+    z-index: -2;
+}
+
+/* #tracking-container-slave {
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    max-width: 100vw;
+    min-height: 100vh;
+    max-height: 100vh;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+} */
+
+#tracking-floater-slave {
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    max-width: 100vw;
+    min-height: 100vh;
+    max-height: 100vh;
+    position: relative;
+    background-color: rgb(255, 108, 255);
+}
+
+#tracking-border {
+    border: 125px solid rgb(0, 26.07, 0);
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    max-width: 100vw;
+    min-height: 100vh;
+    max-height: 100vh;
+    position: absolute;
+}

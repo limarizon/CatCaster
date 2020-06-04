@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Team 3</title>
+    <meta name="description" content="Screen casting app" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link rel="shortcut icon" href="#" />
+</head>
+
+<body id="page" style="height: 100vh">
+
+    <!-- An area where test results can be printed. -->
+    <div id="test-results" style="display: none;">
+        <h2>TEST RESULTS</h2>
+        <div id="test-results-text"></div>
+        <div style="width: 100vw; display: flex; align-items: center; flex-direction: column;">
+            <div>
+                <h3>Output</h3>
+            </div>
+        </div>
+        <img id="test-results-visual" src="" style="max-width: 100vw; max-height: 100vh;" />
+    </div>
+    <div id="master" style="display:none;">
+        <div id="welcome-master-no-slave-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body" style="color: black;">
+                Make sure there are slaves connected and that the device is in landscape!
+            </div>
+        </div>
+        <div id="welcome-master">
+            <div id="welcome-master-content">
+                <div id="welcome-master-text" class="thin-font">
+                    You are master!
+                </div>
+                <div id="welcome-master-connected-slaves">
+                    --- Connected Slaves:
+                    <span id="welcome-master-connected-slaves-amt">0</span>
+                    ---
+                </div>
+                <button type="button" id="start-master-button" class="btn btn-outline-light thin-font"
+                    title="Become the master and start working.">
+                    Start
+                </button>
+            </div>
+        </div>
+        <div id="main-flow-master">
+            <div id="cameraContainer">
+                <div id="cameraViewFloater">
+                  <div id="cameraViewPortContainer">
+                    <video autoplay="true" id="camera"></video>
+                    <canvas id="cameraOverlay" class="cameraOverlay"></canvas>
+                  </div>
+                </div>
+                <div id="cameraButtonsContainer">
+                  <div class="circularButtonContainer1">
+                    <div style="display: flex; flex-direction: column;">
+                        <button class="button" id="trackingBackButton" tabindex="0">Back</button>
+                        <button class="button" id="tracking3DButton" data-enabled="false" tabindex="0">3D</button>
+                    </div>
+                  </div>
+                  <div class="circularButtonContainer2">
+                    <button class="circle button" id="confirmButton"></button>
+                    <div class="spinner-grow text-light" role="status" id="detectionLoadingIndicator"></div>
+                  </div>
+                </div>
+            </div>
+            <div id="postDetectionContent" style="display: none;">
+                <div>
+                    <button type="button" id="display-countdown-button" class="btn btn-outline-light thin-font">
+                    Display countdown
+                    </button>
+                    <button type="button" id="display-unicorn-img-button" class="btn btn-outline-light thin-font">
+                    Display unicorn
+                    </button>
+                    <button type="button" id="display-master-img-button" class="btn btn-outline-light thin-font">
+                    Display master image
+                    </button>
+                    <button type="button" id="track-slaves-button" class="btn btn-outline-light thin-font">
+                    Track Screens
+                    </button>
+                </div>
+                <div>
+                    <button type="button" id="display-delaunay-triangulation-button" class="btn btn-outline-light thin-font">
+                    Start animation
+                    </button>
+                    <button type="button" id="stop-delaunay-triangulation-button" class="btn btn-outline-light thin-font">
+                    Stop animation
+                    </button>
+                </div>
+                <div>
+                    <button type="button" id="start-video-button" class="btn btn-outline-light thin-font">
+                    Start Video
+                    </button>
+                    <!--Toggle video: used to pause and play video after pausing, do not use Start Video button after pausing!-->
+                    <button type="button" id="toggle-video-button" class="btn btn-outline-light thin-font">
+                    Toggle Video
+                    </button>
+                    <button type="button" id="stop-video-button" class="btn btn-outline-light thin-font">
+                    Stop Video
+                    </button>
+                </div>
+                <!-- <div>
+                    <button type="button" id="reset-master-button" class="btn btn-outline-light thin-font">
+                    Reset master
+                    </button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- All parts pertaining to the slave. -->
+    <div id="slave" style="display:none; width: 100vw; height: 100vh;">
+        <div id="main-flow-slave">
+            <div id="default-slave-state">
+            </div>
+            <div id="orientation-colors">
+                <div style="display: flex; width: 100vw; height: 100vh;">
+                    <div style="display: flex; flex-direction: column; flex: 1">
+                        <div style="flex: 1; background-color: rgb(255, 70, 180);"></div>
+                        <div style="flex: 1; background-color: rgb(255, 216, 0);"></div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; flex: 1">
+                        <div style="flex: 1; background-color: rgb(0, 255, 25);"></div>
+                        <div style="flex: 1; background-color: rgb(12, 0, 255);"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="detection-colors"></div>
+        </div>
+        <div id="image-container-slave">
+        </div>
+        <div id="video-container-slave">
+            <video src="" id="video-slave" class="perspective" loop autobuffer preload muted="muted" >
+            </video>
+        </div>
+        <div 
+            id="tracking-container-slave"
+            style="
+                position: fixed;
+                padding: 0;
+                margin: 0;
+            
+                top: 0;
+                left: 0;
+            
+                max-width: 100vw;
+                z-index: -2;
+            "
+        >
+        </div>
+    </div>
+
+    <!-- A loading indicator. -->
+    <div id="loading" style="width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center;">
+        <div class="spinner-grow text-light" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <!-- A number of different links and scripts. -->
+    <div id="resources">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous" />
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js">
+        </script>
+        <script>
+            window.numeric = numeric;
+
+            function computeTransform(src, dst) {
+                // src and dst should have length 4 each
+                var count = 4;
+                var a = []; // (2*count) x 8 matrix
+                var b = []; // (2*count) vector
+
+                for (var i = 0; i < 2 * count; ++i) {
+                    a.push([0, 0, 0, 0, 0, 0, 0, 0]);
+                    b.push(0);
+                }
+
+                for (var i = 0; i < count; ++i) {
+                    var j = i + count;
+                    a[i][0] = a[j][3] = src[i][0];
+                    a[i][1] = a[j][4] = src[i][1];
+                    a[i][2] = a[j][5] = 1;
+                    a[i][3] = a[i][4] = a[i][5] =
+                        a[j][0] = a[j][1] = a[j][2] = 0;
+                    a[i][6] = -src[i][0] * dst[i][0];
+                    a[i][7] = -src[i][1] * dst[i][0];
+                    a[j][6] = -src[i][0] * dst[i][1];
+                    a[j][7] = -src[i][1] * dst[i][1];
+                    b[i] = dst[i][0];
+                    b[j] = dst[i][1];
+                }
+
+                var x = numeric.solve(a, b);
+                // matrix3d is homogeneous coords in column major!
+                // the z coordinate is unused
+                var m = [
+                    x[0], x[3], 0, x[6],
+                    x[1], x[4], 0, x[7],
+                    0, 0, 1, 0,
+                    x[2], x[5], 0, 1
+                ];
+                var transform = "matrix3d(";
+                for (var i = 0; i < m.length - 1; ++i) {
+                    transform += m[i] + ", ";
+                }
+                transform += m[15] + ")";
+                return transform;
+            }
+
+            // Collect the four corners
+            function applyTransform(dst, src, img) {
+                if (dst.length == 4) {
+                    // Once we have all corners, compute the transform.
+                    var w = img.width,
+                        h = img.height;
+                    var transform = computeTransform(
+                        dst,
+                        src
+                    );
+
+                    img.style.transformOrigin = '0 0';
+                    img.style.transform = transform;
+                }
+            }
+
+            window.applyTransform = applyTransform;
+        </script>
+        <script src="../bundle.js"></script>
+    </div>
+</body>
+
+</html>
