@@ -7,7 +7,7 @@ Throughout the final semester the addition of video playback and 3D VR of a cube
 
 ### About
 
-This project was created in a group of six CS students at KU Leuven dept of CS. This project was our first introduction to computer vision and server/client communications hands on. The project served as our Bachelor's 'thesis' to round off our bachelor study for the course: 'Project and development' at the faculty of computer sciences.
+This project was created in a group of six CS students at KU Leuven dept of CS. This project was our first introduction to computer vision and server/client communications hands on. The project served as our Bachelor's 'thesis' to round off our bachelor study for the course: 'Project and development' at the faculty of computer sciences (https://onderwijsaanbod.kuleuven.be//2019/syllabi/n/H01Q3CN.htm#activetab=doelstellingen_idp3126432) .
 
 ### Papers
 
