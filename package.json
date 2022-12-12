@@ -22,7 +22,7 @@
         "color-convert": "^2.0.1",
         "compression": "^1.7.4",
         "delta-e": "0.0.7",
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "gaussian-elimination": "^1.0.2",
         "glfx": "0.0.4",
         "i": "^0.3.6",
